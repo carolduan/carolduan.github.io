@@ -1,4 +1,8 @@
-
+---
+layout: post
+title: Project-2 Ames Housing Data and Kaggle Challenge
+date: 2018-05-18
+---
 
 ```python
 import pandas as pd
