@@ -4,6 +4,7 @@ title: Project-2 Ames Housing Data and Kaggle Challenge
 date: 2018-05-18
 ---
 
+
 ```python
 import pandas as pd
 from sklearn.linear_model import Ridge, Lasso, ElasticNet, LinearRegression, RidgeCV, LassoCV, ElasticNetCV
@@ -1914,7 +1915,7 @@ Way to Answer:
 2. Use the test dataset to predict the sales price of Ames
 
 Answer:  
-![](answer.png)
+![png](/images/Final_Explore_files/Final_Answer.png)
 
 
 ```python
