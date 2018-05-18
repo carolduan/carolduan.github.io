@@ -3,6 +3,21 @@ layout: post
 title: Project-2 Ames Housing Data and Kaggle Challenge
 date: 2018-05-18
 ---
+Task: Create a regression model based on the Ames Housing Dataset. This model will predict the price of a house at sale.
+
+Target: House price in Ames, IA (sale_price is a continuous variable)
+Problem Type: Regression & Predictions
+
+My Workflow:
+- Inferences: Get knowledge of the most important price-related features of the property that people care about when buying a house in Ames, IA
+- Predictions: Predict the price of house at sale in Ames, IA based on the important features of the property
+
+## Define problem
+1. Get knowledge of the most important elements that people care about when buying a house in Ames, IA
+2. Predict the price of house at sale using the Ames Iowa Housing dataset
+
+## Gather Data
+Load the Ames Iowa Housing dataset
 
 
 ```python
@@ -19,14 +34,6 @@ import seaborn as sns
 %config InlineBackend.figure_format = 'retina'
 %matplotlib inline
 ```
-
-## Define problem
-1. Get knowledge of the most important elements that people care about when buying a house in Ames, IA
-2. Predict the price of house at sale using the Ames Iowa Housing dataset
-
-## Gather Data
-Load the Ames Iowa Housing dataset
-
 
 ```python
 # load the data
@@ -1581,12 +1588,6 @@ lasso_model = Lasso(alpha=lasso_optimal_alpha)
 cross_val_score(lasso_model, X_train_scaled, y_train).mean()
 ```
 
-    /anaconda3/envs/dsi/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-
-
-
-
 
     0.7983608634379319
 
@@ -1773,13 +1774,6 @@ cross_val_score(enet_model, X_train_scaled_picked, y_train).mean()
 # drop testing data set id and pid which won't be a good predictors
 X_test.drop(['id','pid'],axis=1,inplace=True)
 ```
-
-    /anaconda3/envs/dsi/lib/python3.6/site-packages/ipykernel/__main__.py:2: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-      from ipykernel import kernelapp as app
-
 
 
 ```python
@@ -2370,17 +2364,6 @@ predict['saleprice'] = lasso_model_2.predict(predict_scaled_picked)
 predict['saleprice'].shape
 ```
 
-    /anaconda3/envs/dsi/lib/python3.6/site-packages/ipykernel/__main__.py:2: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-      from ipykernel import kernelapp as app
-
-
-
-
-
     (879,)
 
 
@@ -2396,15 +2379,4 @@ result = result.sort_index(ascending=True)
 result.to_csv('result.csv')
 ```
 
-    /anaconda3/envs/dsi/lib/python3.6/site-packages/pandas/core/frame.py:3027: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-      return super(DataFrame, self).rename(**kwargs)
-    /anaconda3/envs/dsi/lib/python3.6/site-packages/pandas/core/generic.py:3643: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-      self[name] = value
 
